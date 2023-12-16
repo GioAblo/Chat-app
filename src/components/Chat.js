@@ -1,6 +1,7 @@
 import  { useEffect, useState } from 'react';
 import {addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy} from "firebase/firestore";
 import { db, auth } from '../firebase-config';
+import "../App.css"
 
 export default function Chat(props) {
   const {room} = props;
@@ -42,21 +43,23 @@ export default function Chat(props) {
    
 
   return (
-    <div>
-      <div>
-         
-      </div>
-      <div><h1>You are in room: {room}</h1></div>
-      <div>{messages.map((message) => (
-        <div key={message.id}>
-          <span>{message.user}</span>
-          {message.text}
+    <>
+      
+      <h1 className='roomname'>You are in room: <span>{room}</span></h1>
+
+      <div className='messages-cont'>{messages.map((message) => (
+        <div className='messages-list' key={message.id}>
+          <div className='messages-list-user_name'>{message.user}</div>
+          <p className='messages-list-user_message'>{message.text}</p>
         </div>
       ))}</div>
-      <form onSubmit={handleSubmit}>
-        <input value={newMessage} onChange={(e) => setNewMessage(e.target.value)}  placeholder='write massage...'/>
-        <button type='submit'>Send</button>
+
+      <form className="input-group" onSubmit={handleSubmit}>
+        <input className="input" value={newMessage} onChange={(e) => setNewMessage(e.target.value)}  placeholder='write massage...'/>
+        <button className="button--submit" type='submit'>Send</button>
       </form>
-    </div>
+
+
+    </>
   )
 }

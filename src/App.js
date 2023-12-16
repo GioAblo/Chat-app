@@ -28,29 +28,49 @@ function App() {
 
   if(!isAuth){
     return (
-      <div className="App">
+      <section>
+        <div className="main">
         <Auth setIsAuth={setIsAuth}/>
       </div>
+      </section>
+      
     );
   }
 
   return (
-    < >
+    <section>
+      <div className='main'>
+        
       {room ?
-       (<div>
+       (<div className='chat'>
         <Chat room={room} />
       </div>) 
       
       :
-      (<div> 
+      
+      (<div className='room-cont'> 
+        
         <label>Enter room name</label>
-        <input  ref={roomInputRef} />
-        <button onClick={() => setRoom(roomInputRef.current.value)} >Enter chat</button>
+        <div class="textInputWrapper">
+            <input placeholder="Type Here" type="text" class="textInput"  ref={roomInputRef} />
+        </div>  
+    
+        <button className='button' onClick={() => setRoom(roomInputRef.current.value)} >Enter chat</button>
+
+        <p className='warning'> <span> &#9888;</span> Remember after each webpage refresh you will be returned to the "Enter room name" page. Please remember the room name if you want not to lose your messages with your friends!</p>
       </div>
       )}
 
-      <button onClick={signUserOut}>Sign Out</button>
-    </>
+
+      <div className='sign-out'>
+        <button className='button' onClick={signUserOut}>Sign Out</button>
+      </div>
+      
+    </div>
+    </section>
+    
+      
+   
   ) 
     
 }
