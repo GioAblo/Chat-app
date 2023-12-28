@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import { Auth } from './components/Auth';
 import Chat from './components/Chat';
@@ -14,8 +14,20 @@ function App() {
 
   const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
   const [room, setRoom] = useState(null);
+  const [config, setConfig] = useState()
 
   const roomInputRef = useRef(null);
+ 
+  useEffect(() => {
+    if (isAuth === undefined) {
+      setConfig( { alignItems: 'center', justifyContent: 'center' })
+    } 
+  
+  }, [])
+
+  console.log(isAuth);
+  console.log(config);
+   
 
 
   const signUserOut = async () => {
@@ -29,7 +41,7 @@ function App() {
   if(!isAuth){
     return (
       <section>
-        <div className="main">
+        <div className="main  " style={config}>
         <Auth setIsAuth={setIsAuth}/>
       </div>
       </section>

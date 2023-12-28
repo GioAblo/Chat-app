@@ -25,6 +25,12 @@ h1 h2 {
     padding-bottom: 16px;
     border-radius: 3px;
 }
+@media (max-width: 500px) {
+  .warning {
+    font-size: 13px;
+  }
+}
+
 
 .warning span {
   color: yellow;
@@ -32,11 +38,9 @@ h1 h2 {
 }
 
 .sign-in {
-  position: absolute;
-    top: 43%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .sign-in span {
@@ -46,6 +50,15 @@ h1 h2 {
 
 .sign-in button {
   font-size: 23px;
+}
+@media (max-width: 450px) {
+  .sign-in button {
+    font-size: 18px;
+  }
+  .sign-in h2 {
+    font-size: 18px;
+    text-align: center;
+  }
 }
 
 .first{
@@ -76,24 +89,45 @@ section {
 }
 
 .main {
-  width: 800px;
-  height: 900px;
+ width: 60%;
+ height: 100vh;
 
   display: flex;
   align-items: end;
-  justify-content: center;
+
   background-color: #252222;
   border-radius: 10px;
   position: relative;
+}
+
+/* .main-config {
+  align-items: center;
+  justify-content: center;
+} */
+
+@media (max-width: 840px) {
+  .main {
+    width: 100%;
+    border-radius: 0;
+  }
 }
 
 
 
  .sign-out {
   position: absolute;
-   top: 27px;
-  right: 19px;
+  top: 12px;
+  left: 10px;
  }
+
+ @media (max-width: 500px) {
+  .sign-out {
+    top: 14px;
+    right: 10px;
+  }
+  
+}
+ 
 
 .button {
   display: inline-block;
@@ -110,8 +144,12 @@ section {
   position: relative;
  
   cursor: pointer;
+} @media (max-width: 500px) {
+  .button {
+    padding: 6px 10px;
+    font-size: 15px;
 }
-
+}
 
 
 .button:before {
@@ -162,9 +200,23 @@ section {
 }
 
 
+.chatCont {
+  width: 100%;
+    display: flex;
+    flex-flow: column-reverse;
+    padding-left: 160px;
+}
+
+@media (max-width: 500px) {
+  .chatCont {
+    padding-left: 128px;  
+  }
+}
+
 .chat {
   width: 95%;
-  border-top: 1px solid #5e4dcd;
+  display: flex;
+
 }
 
 .chat form {
@@ -172,27 +224,95 @@ section {
   padding-block: 20px;
 }
 
+@media (max-width: 500px) {
+  .chat form {
+    padding-top: 0;
+  }
+}
+
+
 .chat form input {
-  width: 80%;
+  width: 85%;
   height: 60px;
+}@media (max-width: 500px) {
+  .chat form input {
+    height: 41px;
+  }
+}
+
+.roomNameCont {
+  width: 142px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  border-right: 2px solid #5e4dcd;
+}@media (max-width: 500px)  {
+  .roomNameCont {
+    width: 106px;
+  }
 }
 
 .roomname {
-  position: absolute;
-  top: 9px;
+  border: 2px solid grey;
+    /* margin-top: 56px; */
+    margin: 66px 10px 10px 10px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-.roomname span {
+.roomname div {
+  font-size: 22px;
+    border-bottom: 2px solid grey;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+@media (max-width: 500px) {
+  .roomname {
+    font-size: 18px;
+  }
+  .roomname p {
+    font-size: 21px;
+  }
+
+}
+
+.roomname  p {
   color: #5e4dcd;
   font-style: italic;
-  font-size: 28px;
+  font-size: 24px;
+  max-width: 119px;
+    min-height: 51px;
+    max-height: 103px;
+    text-align: center;
+    margin-block: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+
+/* .messagesMainCont {
+  max-height: 750px;
+  overflow: hidden;
+} */
+
 .messages-cont {
-  height: 700px;
+  height: 88vh;
   overflow: auto;
   border-radius: 5px;
   padding-bottom: 10px;
+}
+
+@media (max-width: 500px) {
+  .messages-cont {
+    padding-bottom: 0;
+  }
 }
 
 .messages-cont::-webkit-scrollbar {
@@ -230,10 +350,6 @@ section {
 
 
 
-
-
-
-
 .room-cont {
   position: absolute;
   top: 33%;
@@ -255,7 +371,6 @@ section {
 }
 
 .input {
-
   padding: 0 1rem;
   color: #fff;
   font-size: 15px;
@@ -274,6 +389,10 @@ section {
   font-size: 15px;
   cursor: pointer;
   transition: background-color .3s ease-in-out;
+}@media (max-width: 500px) {
+  .button--submit {
+    min-height: 43px;
+  }
 }
 
 .button--submit:hover {
