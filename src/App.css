@@ -303,7 +303,7 @@ section {
 } */
 
 .messages-cont {
-  height: 88vh;
+  max-height: 85vh;
   overflow: auto;
   border-radius: 5px;
   padding-bottom: 10px;
